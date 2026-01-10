@@ -1,11 +1,11 @@
 export default function Navbar() {
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-      <ul className="flex items-center gap-8 px-8 py-3 rounded-full border border-zinc-700 bg-background/80 backdrop-blur">
+    <nav className="fixed top-6 md:top-6 left-1/2 -translate-x-1/2 z-50">
+      <ul className="flex items-center gap-6 md:gap-8 px-6 py-4 md:px-10 py-4 rounded-lg border border-zinc-700 bg-background/80 backdrop-blur">
         <li>
           <a
             href="#about"
-            className="text-sm text-zinc-400 hover:text-foreground transition"
+            className="text-sm md:text-base text-zinc-400 hover:text-foreground transition"
           >
             About
           </a>
@@ -13,15 +13,15 @@ export default function Navbar() {
         <li>
           <a
             href="#projects"
-            className="text-sm text-zinc-400 hover:text-foreground transition"
+            className="text-sm md:text-base text-zinc-400 hover:text-foreground transition"
           >
             Projects
           </a>
         </li>
         <li>
           <a
-            href="#contact"
-            className="text-sm text-zinc-400 hover:text-foreground transition"
+            href="#contact" 
+            className="text-sm md:text-base text-zinc-400 hover:text-foreground transition"
           >
             Contact
           </a>
@@ -32,7 +32,7 @@ export default function Navbar() {
           <a
             href="/CV_Rizki_Syawaludin.pdf"
             download
-            className="text-sm text-primary border border-primary px-4 py-1.5 rounded-full hover:bg-primary hover:text-background transition"
+            className="text-sm md:text-base text-primary border border-primary px-5 py-2 md:px-7 py-2.5 rounded-lg hover:bg-primary hover:text-background transition"
           >
             Resume
           </a>
