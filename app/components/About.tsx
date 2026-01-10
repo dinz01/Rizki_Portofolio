@@ -19,7 +19,7 @@ export default function About() {
         <div className="md:col-span-2 text-zinc-400 leading-relaxed space-y-4">
           <p>
             Hello! My name is <span className="text-foreground">Rizki Syawaludin</span>, a
-            Fifth-Semester Undergraduate Student who is interested in web development, and UI/UX designer
+            5th-Semester Undergraduate Student who is interested in web development, and UI/UX designer
             especially in building modern and responsive websites.
           </p>
 

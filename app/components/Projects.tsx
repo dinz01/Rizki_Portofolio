@@ -42,17 +42,17 @@ export default function Projects() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="relative bg-zinc-900 rounded-lg p-6 border border-zinc-800"
+            className="relative bg-zinc-900 rounded-lg p-6 hover:-translate-y-2 hover:-translate-x-2 transition"
           >
-            <h3 className="text-xl font-semibold text-foreground mb-2">
+            <h3 className="text-lg font-semibold text-foreground    ">
               {project.title}
             </h3>
 
-            <p className="text-zinc-400 mb-4">
+            <p className="text-sm text-zinc-400 mt-2">
               {project.description}
             </p>
 
-            <ul className="flex flex-wrap gap-3 font-mono text-sm text-zinc-500">
+            <ul className="flex gap-3 mt-4 text-xs font-mono text-zinc-400">
               {project.tech.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
