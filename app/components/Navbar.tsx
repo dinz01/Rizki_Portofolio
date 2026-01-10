@@ -10,7 +10,11 @@ const navItems = [
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
+  const [isHidden, setIsHidden] = useState(false);
 
+  // ===============================
+  // ACTIVE SECTION (IntersectionObserver)
+  // ===============================
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
 
@@ -32,10 +36,36 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  // ===============================
+  // HIDE NAVBAR ON SCROLL
+  // ===============================
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <nav
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+        isHidden ? "-translate-y-24 opacity-0" : "translate-y-0 opacity-100"
+      }`}
+    >
       <ul className="flex items-center gap-6 md:gap-8 px-6 py-4 md:px-10 rounded-lg border border-zinc-700 bg-background/80 backdrop-blur">
-        
         {/* NAV MENU */}
         {navItems.map((item) => {
           const isActive = activeSection === item.href.replace("#", "");
@@ -51,13 +81,16 @@ export default function Navbar() {
                 }`}
               >
                 {item.label}
-            {/* underline */}
-            <span
-              className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left transform bg-foreground transition-transform duration-300 ${
-                isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-              }`}
-            />
-          </a>
+
+                {/* underline */}
+                <span
+                  className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left transform bg-foreground transition-transform duration-300 ${
+                    isActive
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </a>
             </li>
           );
         })}
