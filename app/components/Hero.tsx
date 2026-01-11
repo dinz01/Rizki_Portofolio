@@ -9,7 +9,21 @@ export default function Hero() {
       <div className="relative min-h-screen overflow-hidden">
         
         {/* Background Prism */}
-        <div className="absolute inset-0 -z-10">
+                <div className="absolute inset-0 -z-10 block md:hidden">
+          <Prism
+            animationType="rotate"
+            timeScale={0.4}
+            height={2.2}
+            baseWidth={3}
+            scale={2}
+            hueShift={0}
+            colorFrequency={1}
+            noise={0}
+            glow={0.35}
+          />
+        </div>
+        
+        <div className="absolute inset-0 -z-10 hidden md:block">
           <Prism
             animationType="rotate"
             timeScale={0.5}
@@ -19,7 +33,7 @@ export default function Hero() {
             hueShift={0}
             colorFrequency={1}
             noise={0}
-            glow={1}
+            glow={0.5}
           />
         </div>
 

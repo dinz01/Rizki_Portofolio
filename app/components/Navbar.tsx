@@ -61,25 +61,26 @@ export default function Navbar() {
       className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] pointer-events-auto"
     >
       <ul className="flex items-center gap-6 md:gap-8 px-6 py-4 md:px-10 rounded-lg border border-zinc-700 bg-zinc-900/80 backdrop-blur">
-        {/* NAV MENU */}
-{navItems.map((item) => {
-  const isActive = activeSection === item.href.replace("#", "");
 
-  return (
-    <li key={item.href}>
-      <motion.a
-        onMouseEnter={() => console.log("HOVER MASUK")}
-        href={item.href}
-        initial="rest"
-        animate={isActive ? "active" : "rest"}
-        whileHover="hover"
-        className={`relative text-sm md:text-base ${
-          isActive
-            ? "text-foreground"
-            : "text-zinc-400 hover:text-foreground"
-        }`}
-      >
-        {item.label}
+        {/* NAV MENU */}
+        {navItems.map((item) => {
+          const isActive = activeSection === item.href.replace("#", "");
+
+          return (
+            <li key={item.href}>
+              <motion.a
+                onMouseEnter={() => console.log("HOVER MASUK")}
+                href={item.href}
+                initial="rest"
+                animate={isActive ? "active" : "rest"}
+                whileHover="hover"
+                className={`relative text-sm md:text-base ${
+                  isActive
+                    ? "text-foreground"
+                    : "text-zinc-400 hover:text-foreground"
+                }`}
+              >
+                {item.label}
 
         <motion.span
           variants={{
