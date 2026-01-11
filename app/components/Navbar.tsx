@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -13,7 +14,7 @@ export default function Navbar() {
   const [isHidden, setIsHidden] = useState(false);
 
   // ===============================
-  // ACTIVE SECTION (IntersectionObserver)
+  // ACTIVE SECTION
   // ===============================
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
@@ -26,13 +27,10 @@ export default function Navbar() {
           }
         });
       },
-      {
-        rootMargin: "-40% 0px -40% 0px",
-      }
+      { rootMargin: "-40% 0px -40% 0px" }
     );
 
     sections.forEach((section) => observer.observe(section));
-
     return () => observer.disconnect();
   }, []);
 
@@ -44,26 +42,23 @@ export default function Navbar() {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
-
+      setIsHidden(currentScrollY > lastScrollY && currentScrollY > 80);
       lastScrollY = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
-        isHidden ? "-translate-y-24 opacity-0" : "translate-y-0 opacity-100"
-      }`}
+    <motion.nav
+      initial={{ y: -40, opacity: 0 }}
+      animate={{
+        y: isHidden ? -80 : 0,
+        opacity: isHidden ? 0 : 1,
+      }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
     >
       <ul className="flex items-center gap-6 md:gap-8 px-6 py-4 md:px-10 rounded-lg border border-zinc-700 bg-background/80 backdrop-blur">
         {/* NAV MENU */}
@@ -71,10 +66,12 @@ export default function Navbar() {
           const isActive = activeSection === item.href.replace("#", "");
 
           return (
-            <li key={item.href} className="group">
-              <a
+            <li key={item.href} className="relative">
+              <motion.a
                 href={item.href}
-                className={`relative text-sm md:text-base transition ${
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className={`relative text-sm md:text-base ${
                   isActive
                     ? "text-foreground"
                     : "text-zinc-400 hover:text-foreground"
@@ -83,29 +80,32 @@ export default function Navbar() {
                 {item.label}
 
                 {/* underline */}
-                <span
-                  className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left transform bg-foreground transition-transform duration-300 ${
-                    isActive
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100"
-                  }`}
+                <motion.span
+                  layout
+                  className="absolute left-0 -bottom-1 h-[2px] w-full bg-foreground"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: isActive ? 1 : 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ originX: 0 }}
                 />
-              </a>
+              </motion.a>
             </li>
           );
         })}
 
         {/* RESUME BUTTON */}
         <li>
-          <a
+          <motion.a
             href="/CV_Rizki_Syawaludin.pdf"
             download
+            whileHover={{ scale: 1.05 }}
             className="text-sm md:text-base text-primary border border-primary px-5 py-2 md:px-7 md:py-2.5 rounded-lg hover:bg-primary hover:text-background transition"
           >
             Resume
-          </a>
+          </motion.a>
         </li>
       </ul>
-    </nav>
+    </motion.nav>
   );
 }
