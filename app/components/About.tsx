@@ -1,5 +1,8 @@
+import Section from "@/app/components/Section";
+
 export default function About() {
   return (
+    <Section>
     <section
       id="about"
       className="max-w-4xl mx-auto px-6 py-24 scroll-mt-24"
@@ -55,5 +58,6 @@ export default function About() {
         </div>
       </div>
     </section>
+    </Section>
   );
 }
