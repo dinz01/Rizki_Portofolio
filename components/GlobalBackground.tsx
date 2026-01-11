@@ -17,7 +17,7 @@ export default function GlobalBackground() {
       </div>
 
       {/* MOBILE */}
-      <div className="md:hidden w-full h-full">
+      <div className="md:hidden w-full h-full translate-y-[-15%]">
         <Aurora 
           colorStops={["#22c55e", "#fde68a", "#7c3aed"]}
           blend={0.5}
