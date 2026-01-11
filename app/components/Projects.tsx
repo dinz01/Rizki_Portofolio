@@ -22,10 +22,10 @@ const projects: Project[] = [
     link: "https://github.com/dinz01/Luxiousz-Store   ",
   },
   {
-    title: "Student Management System",
+    title: "UI/UX Designer Career Booklet",
     description:
-      "Laravel-based web application for managing student data with authentication and CRUD features.",
-    tech: ["Laravel", "MySQL", "Blade", "Tailwind CSS"],
+      "A guide for recent high school/college graduates and college students interested in a career in UI/UX Design.",
+    tech: ["Canva"],
     image: "/Project_Booklet.png",
     link: "https://www.canva.com/design/DAG9jheO2i0/i1HU6lP8YRE9rh2VPKlIDA/edit?utm_content=DAG9jheO2i0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
   },
