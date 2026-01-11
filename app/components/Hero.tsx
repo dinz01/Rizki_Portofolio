@@ -1,42 +1,12 @@
 "use client";
 
 import Section from "@/app/components/Section";
-import Prism from "@/components/Prism";
 
 export default function Hero() {
   return (
     <Section>
       <div className="relative min-h-screen overflow-hidden">
         
-        {/* Background Prism */}
-                <div className="absolute inset-0 -z-10 block md:hidden">
-          <Prism
-            animationType="rotate"
-            timeScale={0.4}
-            height={2.2}
-            baseWidth={3}
-            scale={2}
-            hueShift={0}
-            colorFrequency={1}
-            noise={0}
-            glow={0.35}
-          />
-        </div>
-        
-        <div className="absolute inset-0 -z-10 hidden md:block">
-          <Prism
-            animationType="rotate"
-            timeScale={0.5}
-            height={3.5}
-            baseWidth={5.5}
-            scale={3.6}
-            hueShift={0}
-            colorFrequency={1}
-            noise={0}
-            glow={0.5}
-          />
-        </div>
-
         {/* Content */}
         <section
           id="hero"
@@ -55,9 +25,10 @@ export default function Hero() {
             <p>in Information Systems.</p>
           </h2>
 
-          <p className="mt-6 max-w-xl text-xl text-zinc-400 leading-relaxed">
-            Currently exploring Frontend Development with Next.js, while pursuing my interest in UI/UX design.
-          </p>
+          <div className="mt-6 max-w-xl text-xl text-zinc-400 leading-relaxed space-y-1">
+            <p>Currently exploring Frontend Development with Next.js,</p>
+            <p>while pursuing my interest in UI/UX design.</p>
+          </div>
         </section>
 
       </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import Section from "@/app/components/Section";
 import Image from "next/image";
 
@@ -6,8 +8,8 @@ export default function About() {
     <Section>
     <section
       id="about"
-      className="max-w-4xl mx-auto px-6 py-24 scroll-mt-24"
-    >
+      className="max-w-4xl mx-auto px-6 py-24 scroll-mt-24">
+
       {/* Title */}
       <div className="flex items-center gap-4 mb-10">
         <span className="text-primary font-mono text-sm">01.</span>
@@ -22,17 +24,17 @@ export default function About() {
         {/* Text */}
         <div className="md:col-span-2 text-zinc-400 leading-relaxed space-y-4">
           <p>
-            Hello! My name is <span className="text-foreground">Rizki Syawaludin</span>, a
+            Hello! I'm <span className="text-foreground">Rizki Syawaludin</span>, a
             5th-Semester Undergraduate Student who is interested in web development, and UI/UX designer
             especially in building modern and responsive websites.
           </p>
 
           <p>
             I started learning web development through college projects and
-            self-learning. Currently, I focus on <span className="text-foreground">
-              Frontend Development
+            self-learning. Currently exploring <span className="text-foreground">
+              Frontend Development and UI/UX Design
             </span>{" "}
-            using modern technologies.
+            using modern technologies
           </p>
 
           <p>

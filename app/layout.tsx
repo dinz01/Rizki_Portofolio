@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import GlobalBackground from "@/components/GlobalBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,19 +24,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-<html lang="en" className="dark">
-  <body className="bg-zinc-950 text-zinc-100 relative overflow-x-hidden">
+    <html lang="en" className="dark">
+      <body
+        className={`
+          ${geistSans.variable}
+          ${geistMono.variable}
+          bg-zinc-950 text-zinc-100
+          relative overflow-x-hidden
+        `}
+      >
+        {/* GLOBAL BACKGROUND */}
+        <GlobalBackground />
 
-    {/* BACKGROUND (DI BAWAH SEMUA) */}
-    <div className="fixed inset-0 z-0 pointer-events-none" />
-
-    {/* APP CONTENT */}
-    <main className="relative z-10">
-      {children}
-    </main>
-
-  </body>
-</html>
-
+        {/* SEMUA HALAMAN / SECTION */}
+        <main className="relative z-10">
+          {children}
+        </main>
+      </body>
+    </html>
   );
 }
