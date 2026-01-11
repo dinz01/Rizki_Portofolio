@@ -1,4 +1,5 @@
 import Section from "@/app/components/Section";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -51,10 +52,26 @@ export default function About() {
 
         {/* Image Placeholder */}
         <div className="relative group w-full max-w-xs mx-auto">
-          <div className="relative z-10 rounded border border-primary p-2">
-            <div className="aspect-square bg-zinc-800 rounded" />
-          </div>
-          <div className="absolute inset-0 translate-x-3 translate-y-3 border border-primary rounded -z-10" />
+        <div className="relative z-10 rounded border border-primary p-2 overflow-hidden">
+            <Image
+            src="/Profile.jpeg"
+            alt="Rizki Syawaludin"
+            width={400}
+            height={400}
+            className="
+                aspect-square
+                rounded
+                object-cover
+                grayscale
+                group-hover:grayscale-0
+                group-hover:scale-110
+                transition
+                duration-500
+                ease-out
+            "
+            />
+        </div>
+        <div className="absolute inset-0 translate-x-3 translate-y-3 border border-primary rounded -z-10" />
         </div>
       </div>
     </section>

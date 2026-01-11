@@ -19,16 +19,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+<html lang="en" className="dark">
+  <body className="bg-zinc-950 text-zinc-100 relative overflow-x-hidden">
+
+    {/* BACKGROUND (DI BAWAH SEMUA) */}
+    <div className="fixed inset-0 z-0 pointer-events-none" />
+
+    {/* APP CONTENT */}
+    <main className="relative z-10">
+      {children}
+    </main>
+
+  </body>
+</html>
+
   );
 }

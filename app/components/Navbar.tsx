@@ -58,41 +58,42 @@ export default function Navbar() {
         opacity: isHidden ? 0 : 1,
       }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] pointer-events-auto"
     >
-      <ul className="flex items-center gap-6 md:gap-8 px-6 py-4 md:px-10 rounded-lg border border-zinc-700 bg-background/80 backdrop-blur">
+      <ul className="flex items-center gap-6 md:gap-8 px-6 py-4 md:px-10 rounded-lg border border-zinc-700 bg-zinc-900/80 backdrop-blur">
         {/* NAV MENU */}
-        {navItems.map((item) => {
-          const isActive = activeSection === item.href.replace("#", "");
+{navItems.map((item) => {
+  const isActive = activeSection === item.href.replace("#", "");
 
-          return (
-            <li key={item.href} className="relative">
-              <motion.a
-                href={item.href}
-                whileHover={{ y: -2 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className={`relative text-sm md:text-base ${
-                  isActive
-                    ? "text-foreground"
-                    : "text-zinc-400 hover:text-foreground"
-                }`}
-              >
-                {item.label}
+  return (
+    <li key={item.href}>
+      <motion.a
+        onMouseEnter={() => console.log("HOVER MASUK")}
+        href={item.href}
+        initial="rest"
+        animate={isActive ? "active" : "rest"}
+        whileHover="hover"
+        className={`relative text-sm md:text-base ${
+          isActive
+            ? "text-foreground"
+            : "text-zinc-400 hover:text-foreground"
+        }`}
+      >
+        {item.label}
 
-                {/* underline */}
-                <motion.span
-                  layout
-                  className="absolute left-0 -bottom-1 h-[2px] w-full bg-foreground"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: isActive ? 1 : 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ originX: 0 }}
-                />
-              </motion.a>
-            </li>
-          );
-        })}
+        <motion.span
+          variants={{
+            rest: { scaleX: 0 },
+            hover: { scaleX: 1 },
+            active: { scaleX: 1 },
+          }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="pointer-events-none absolute left-0 -bottom-1 h-[2px] w-full bg-foreground origin-left"
+        />
+      </motion.a>
+    </li>
+  );
+})}
 
         {/* RESUME BUTTON */}
         <li>

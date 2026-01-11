@@ -13,13 +13,13 @@ export default function Contact() {
       </h2>
 
       <p className="text-zinc-400 mt-6 max-w-xl mx-auto leading-relaxed">
-        Saya terbuka untuk kesempatan belajar, magang, maupun kolaborasi.
-        Jika Anda tertarik untuk berdiskusi atau memiliki pertanyaan,
-        silakan hubungi saya melalui email.
+        I'm open to learning opportunities, internships, and collaborations.
+        If you're interested in discussing or have any questions,
+        feel free to reach out to me via email.
       </p>
 
       <a
-        href="mailto:emailkamu@gmail.com"
+        href="mailto:rizkisyawaludin12@gmail.com"
         className="inline-block mt-10 px-8 py-4 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition"
       >
         Say Hello
