@@ -2,30 +2,35 @@
 
 import { motion } from "framer-motion";
 import Section from "@/app/components/Section";
+import Image from "next/image";
 
 type Project = {
   title: string;
   description: string;
   tech: string[];
+  image: string;
   link?: string;
 };
 
 const projects: Project[] = [
   {
-    title: "Personal Portfolio Website",
+    title: "Luxiousz Store Website",
     description:
-      "Website portfolio pribadi yang dibangun menggunakan Next.js dan Tailwind CSS untuk menampilkan profil, project, dan informasi kontak.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    link: "#",
+      "Online marketplace for buying and selling PUBG Mobile accounts, built with Laravel, featuring account listings, secure transactions, and contact options",
+    tech: ["Laravel", "Javascript", "Bootstrap"],
+    image: "/Project_Luxiousz.png",
+    link: "https://github.com/dinz01/Luxiousz-Store   ",
   },
   {
-    title: "Simple CRUD Application",
+    title: "Student Management System",
     description:
-      "Aplikasi CRUD sederhana untuk mengelola data menggunakan React dan konsep REST API.",
-    tech: ["React", "JavaScript", "API"],
-    link: "#",
+      "Laravel-based web application for managing student data with authentication and CRUD features.",
+    tech: ["Laravel", "MySQL", "Blade", "Tailwind CSS"],
+    image: "/Project_Booklet.png",
+    link: "https://www.canva.com/design/DAG9jheO2i0/i1HU6lP8YRE9rh2VPKlIDA/edit?utm_content=DAG9jheO2i0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
   },
 ];
+
 
 export default function Projects() {
   return (
@@ -47,36 +52,73 @@ export default function Projects() {
         <div className="space-y-12">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="relative bg-zinc-900 rounded-lg p-6 border border-zinc-800"
-            >
-              <h3 className="text-lg font-semibold text-foreground">
-                {project.title}
-              </h3>
-
-              <p className="text-sm text-zinc-400 mt-2">
-                {project.description}
-              </p>
-
-              <ul className="flex flex-wrap gap-3 mt-4 text-xs font-mono text-zinc-400">
-                {project.tech.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-
-              {project.link && (
-                <a
-                  href={project.link}
-                  className="inline-block mt-4 text-primary hover:underline text-sm"
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="relative bg-zinc-900 rounded-lg p-6 border border-zinc-800"
                 >
-                  View Project →
-                </a>
-              )}
+                <div className="grid md:grid-cols-2 gap-6 items-center">
+                    {/* Image */}
+                <div className="relative group rounded overflow-hidden border border-zinc-800">
+                <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className="
+                    object-cover
+                    w-full
+                    h-full
+                    grayscale
+                    group-hover:grayscale-0
+                    group-hover:scale-110
+                    transition
+                    duration-500
+                    ease-out
+                    "
+                />
+
+                {/* overlay gelap */}
+                <div className="
+                    absolute inset-0
+                    bg-black/30
+                    group-hover:bg-black/0
+                    transition
+                    duration-500
+                " />
+                </div>
+
+                    {/* Content */}
+                    <div>
+                    <h3 className="text-lg font-semibold text-foreground">
+                        {project.title}
+                    </h3>
+
+                    <p className="text-sm text-zinc-400 mt-2">
+                        {project.description}
+                    </p>
+
+                    <ul className="flex flex-wrap gap-3 mt-4 text-xs font-mono text-zinc-400">
+                        {project.tech.map((item, i) => (
+                        <li key={i}>{item}</li>
+                        ))}
+                    </ul>
+
+                    {project.link && (
+                        <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-5 text-primary hover:underline text-sm"
+                        >
+                        More →
+                        </a>
+                    )}
+                    </div>
+                </div>
             </motion.div>
           ))}
         </div>

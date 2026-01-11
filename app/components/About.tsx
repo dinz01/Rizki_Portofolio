@@ -50,7 +50,7 @@ export default function About() {
           </ul>
         </div>
 
-        {/* Image Placeholder */}
+        {/* Image */}
         <div className="relative group w-full max-w-xs mx-auto">
         <div className="relative z-10 rounded border border-primary p-2 overflow-hidden">
             <Image
