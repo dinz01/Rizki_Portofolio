@@ -9,7 +9,7 @@ export default function GlobalBackground() {
       {/* DESKTOP */}
       <div className="hidden md:block w-full h-full">
         <Aurora
-          colorStops={["#22c55e", "#14b8a6", "#7c3aed", "#0f172a"]}
+          colorStops={["#22c55e", "#fde68a", "#7c3aed"]}
           blend={0.5}
           amplitude={1.0}
           speed={0.5}
@@ -18,8 +18,8 @@ export default function GlobalBackground() {
 
       {/* MOBILE */}
       <div className="md:hidden w-full h-full">
-        <Aurora
-          colorStops={["#22c55e", "#14b8a6", "#7c3aed", "#0f172a"]}
+        <Aurora 
+          colorStops={["#22c55e", "#fde68a", "#7c3aed"]}
           blend={0.5}
           amplitude={0.5}
           speed={0.25}
