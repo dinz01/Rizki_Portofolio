@@ -27,7 +27,7 @@ const projects: Project[] = [
       "A guide for recent high school/college graduates and college students interested in a career in UI/UX Design.",
     tech: ["Canva"],
     image: "/Project_Booklet.png",
-    link: "https://www.canva.com",
+    link: "https://heyzine.com/flip-book/8fe3955bdc.html",
   },
 ];
 

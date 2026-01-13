@@ -46,9 +46,12 @@ export default function About() {
             <li>▸ HTML & CSS</li>
             <li>▸ Laravel</li>
             <li>▸ TypeScript</li>
+            <li>▸ Bootstrap</li>
             <li>▸ React</li>
             <li>▸ Next.js</li>
             <li>▸ Tailwind CSS</li>
+            <li>▸ Figma</li>
+            <li>▸ Canva</li>
           </ul>
         </div>
 
