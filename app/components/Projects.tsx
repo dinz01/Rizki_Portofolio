@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Section from "@/app/components/Section";
 import Image from "next/image";
+import { ExternalLink, Github } from "lucide-react";
 
 type Project = {
   title: string;
@@ -10,6 +11,7 @@ type Project = {
   tech: string[];
   image: string;
   link?: string;
+  linkType?: "github" | "external";
 };
 
 const projects: Project[] = [
@@ -20,14 +22,16 @@ const projects: Project[] = [
     tech: ["Laravel", "Javascript", "Bootstrap"],
     image: "/Project_Luxiousz.png",
     link: "https://github.com/dinz01/Luxiousz-Store   ",
+    linkType: "github",
   },
   {
     title: "UI/UX Designer Career Booklet",
     description:
-      "A guide for recent high school/college graduates and college students interested in a career in UI/UX Design.",
+      "A comprehensive career booklet designed for recent high school graduates, college students, and early learners who are interested in pursuing a career in UI/UX Design, covering fundamental concepts, career paths, required skills, and industry insights to help readers understand the UI/UX field more clearly.",
     tech: ["Canva"],
     image: "/Project_Booklet.png",
     link: "https://heyzine.com/flip-book/8fe3955bdc.html",
+    linkType: "external",
   },
 ];
 
@@ -112,10 +116,15 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block mt-5 text-primary hover:underline text-sm"
-                        >
-                        More →
-                        </a>
+                        className="inline-flex items-center gap-2 mt-5 text-zinc-400 hover:text-[#00ffd5] transition"
+                        aria-label="Project link"
+                      >
+                        {project.linkType === "github" ? (
+                          <Github size={20} />
+                        ) : (
+                          <ExternalLink size={20} />
+                        )}
+                      </a>
                     )}
                     </div>
                 </div>

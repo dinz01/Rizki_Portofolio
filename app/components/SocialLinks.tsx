@@ -16,7 +16,7 @@ export default function SocialLinks() {
       </a>
 
       <a
-        href="https://www.linkedin.com/in/rizki-syawaludin-641256290"
+        href="https://www.linkedin.com/in/rizki-syawaludin/"
         target="_blank"
         rel="noopener noreferrer"
         className="text-zinc-400 hover:text-[#00ffd5] transition"
